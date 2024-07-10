@@ -1,19 +1,24 @@
 package com.hakimov.nadno;
 
-
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("classpath:person.properties")
 public class PersonConfig {
+
     @Bean
     public Person spongeBob() {
-        Person spongeBob =  new Person();
-        spongeBob.setName(@Value("${spongeBob.name}"));
-        spongeBob.setAge(@Value("${spongeBob.age}"));
-        return spongeBob;
+        return new Person("Sponge Bob", 25);
     }
+
+    @Bean
+    public Person patrick() {
+        return new Person("patrick", 23);
+    }
+
+    @Bean
+    public Person squidward() {
+        return new Person("squidward", 47);
+    }
+
 }
